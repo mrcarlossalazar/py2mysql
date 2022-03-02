@@ -1,4 +1,6 @@
-SELECT name,state,city,MAX(users) 
+SELECT MAX(n.state)
 FROM
-    users
-group by state;
+    users n
+INNER JOIN users_list o ON o.org = n.name
+ORDER BY n.state DESC
+
